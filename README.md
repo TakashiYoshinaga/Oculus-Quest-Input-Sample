@@ -2,7 +2,7 @@
 Sample for getting input data from controllers of Oculus Quest with A-Frame
 
 ## Experiences<br>
-<b>Experience on Glitch</b><br>
+<b>Experience on your device</b><br>
 https://quest-test.glitch.me
 <br><br>
 <b>video</b>
