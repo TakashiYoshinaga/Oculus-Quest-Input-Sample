@@ -1,7 +1,7 @@
 # WebVR Input Sample for Oculus Quest
-Sample for getting input data from controllers of Oculus Quest with A-Frame. 
-Please see also following repository if you are finding a interaction sample
-
+Sample for getting input data from controllers of Oculus Quest with A-Frame. <br>
+Please see also following repository if you are finding a interaction sample.<br>
+https://github.com/TakashiYoshinaga/Oculus-Quest-Interaction-Sample
 
 ## Experiences<br>
 <b>Experience on your device</b><br>
