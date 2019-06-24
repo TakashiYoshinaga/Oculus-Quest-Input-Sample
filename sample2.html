@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <!--https://github.com/TakashiYoshinaga/Oculus-Quest-Input-Sample-->
+  <head>
+    <meta charset="utf-8">
+    <title>Oculus Quest Input</title>
+    <meta name="description" content="Oculus Quest Input">
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <script>  
+      AFRAME.registerComponent('input-listener', {
+        schema: { 
+          hand: {
+            type: "string",
+            default: ""
+          }
+        },
+        //Initialization
+        init:function () {
+          this.el.txt = document.getElementById("txt");
+          this.el.txt2 = document.getElementById("txt2");
+          //Stick Moved
+          this.el.addEventListener('axismove',function(event){
+            this.txt.setAttribute("value", "Stick  x:"+event.detail.axis[0].toFixed(2)+", y:"+event.detail.axis[1].toFixed(2));
+          }); 
+          //Trigger Touch Started
+          this.el.addEventListener('triggertouchstart', function (event) {
+            this.txt.setAttribute("value","Trigger touch started ");
+          });
+          //Trigger Touch Ended
+          this.el.addEventListener('triggertouchend', function (event) {
+            this.txt.setAttribute("value","Trigger touch ended");
+          });
+          //Trigger Pressed
+          this.el.addEventListener('triggerdown', function (event) {
+            this.txt.setAttribute("value","Trigger down");
+          });
+          //Trigger Released
+          this.el.addEventListener('triggerup', function (event) {
+            this.txt.setAttribute("value","Trigger up");
+          });
+          //Grip Pressed
+          this.el.addEventListener('gripdown', function (event) {
+            this.txt.setAttribute("value","Gipdown down");
+          }); 
+          //Grip Released
+          this.el.addEventListener('gripup', function (event) {
+            this.txt.setAttribute("value","Gripdown up");
+          });
+          //A-buttorn Pressed 
+          this.el.addEventListener('abuttondown', function (event) {
+            this.txt.setAttribute("value","A-button down");
+          });
+          //A-buttorn Released
+          this.el.addEventListener('abuttonup', function (event) {
+            this.txt.setAttribute("value","A-button up");
+          });
+          //B-buttorn Pressed
+          this.el.addEventListener('bbuttondown', function (event) {
+            this.txt.setAttribute("value","B-button down");
+          });
+          //B-buttorn Released
+          this.el.addEventListener('bbuttonup', function (event) {
+            this.txt.setAttribute("value","B-button up");
+          });
+          //Y-buttorn Pressed 
+          this.el.addEventListener('ybuttondown', function (event) {
+            this.txt.setAttribute("value","Y-button down");
+          });
+          //Y-buttorn Released
+          this.el.addEventListener('ybuttonup', function (event) {
+            this.txt.setAttribute("value","Y-button up");
+          });
+          //X-buttorn Pressed
+          this.el.addEventListener('xbuttondown', function (event) {
+            this.txt.setAttribute("value","X-button down");
+          });
+          //X-buttorn Released
+          this.el.addEventListener('xbuttonup', function (event) {
+            this.txt.setAttribute("value","X-button up");
+          });
+        },
+        //called evry frame
+        tick: function () {
+          //Position of righ-hand controller is shown in real-time.
+          if(this.data.hand=="right"){
+            var p=this.el.object3D.position;
+            this.el.txt2.setAttribute("value","R-Position: "+ p.x.toFixed(2)+", "+p.y.toFixed(2)+", "+p.z.toFixed(2));
+          }
+        }
+    });
+            
+</script>
+    
+    <a-scene background="color: #FAFAFA">
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
+      <a-entity id="ctlL" laser-controls="hand: left" input-listener="hand: left"></a-entity>
+      <a-entity id="ctlR" laser-controls="hand: right" input-listener="hand: right"></a-entity>
+      <a-entity camera look-controls position="0 1.6 0">
+        <a-text id="txt" value="" position="0 0 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
+        <a-text id="txt2" value="" position="0 -0.15 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
+      </a-entity>
+    </a-scene>   
+  </body>
+</html>
