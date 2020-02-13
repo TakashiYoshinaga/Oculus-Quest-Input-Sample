@@ -1,5 +1,5 @@
 # WebVR Input Sample for Oculus Quest
-Sample for getting input data from controllers of Oculus Quest with A-Frame. <br>
+Samples for getting input data from controllers of Oculus Quest with A-Frame. <br>
 Here are 2 ways of sample to get input information of each controllers.<br><br> 
 <b>sample1.html</b>: Adding EventListner to elements of each controller acquired by using getElementById function. <br>
 <b>sample2.html</b>: Adding EventListner to elements of each controller gotten inside AFRAME.registerComponent function.<br><br>
