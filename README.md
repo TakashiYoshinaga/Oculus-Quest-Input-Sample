@@ -10,7 +10,7 @@ https://github.com/TakashiYoshinaga/Oculus-Quest-Interaction-Sample
 <b>Experience on your device</b><br>
 https://quest-test.glitch.me (sample1.html)<br>
 or <br>
-https://quest-test.glitch2.me (sample2.html)
+https://quest-test2.glitch.me (sample2.html)
 <br><br>
 <b>video</b>
 <br>
