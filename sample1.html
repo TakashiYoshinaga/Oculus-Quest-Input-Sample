@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Oculus Quest Input</title>
-    <meta name="description" content="Oculus Quest Input">
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <title>Hello, WebVR! • A-Frame</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   </head>
   <body>
     <a-scene background="color: #FAFAFA">
@@ -12,8 +12,8 @@
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
-      <a-entity id="ctlL" laser-controls="hand: left"></a-entity>
-      <a-entity id="ctlR" laser-controls="hand: right"></a-entity>
+      <a-entity id="ctlL" oculus-touch-controls="hand: left"></a-entity>
+      <a-entity id="ctlR" oculus-touch-controls="hand: right"></a-entity>
       <a-entity camera look-controls position="0 1.6 0">
         <a-text id="txt" value="" position="0 0 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
         <a-text id="txt2" value="" position="0 -0.15 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
@@ -32,12 +32,14 @@
         txt2.setAttribute("value","R-Position: "+ p.x.toFixed(2)+", "+p.y.toFixed(2)+", "+p.z.toFixed(2));
       }, 100);
       
-      //Stick Moved
-      ctlL.addEventListener('axismove',function(event){
-        txt.setAttribute("value", "L Stick  x:"+event.detail.axis[0].toFixed(2)+", y:"+event.detail.axis[1].toFixed(2));
+      
+      ctlL.addEventListener('thumbstickmoved',function(event){
+        txt.setAttribute("value", "L Stick  x:"+event.detail.x.toFixed(2)+", y:"+event.detail.y.toFixed(2));
+        //txt.setAttribute("value",event.detail.x.toFixed(2));
       });
-      ctlR.addEventListener('axismove',function(event){
-        txt.setAttribute("value", "R Stick  x:"+event.detail.axis[0].toFixed(2)+", y:"+event.detail.axis[1].toFixed(2));
+      ctlR.addEventListener('thumbstickmoved',function(event){
+        txt.setAttribute("value", "R Stick  x:"+event.detail.x.toFixed(2)+", y:"+event.detail.y.toFixed(2));
+        //txt.setAttribute("value",event.detail.x.toFixed(2));
       });
       
       //Trigger Touch Started
@@ -129,6 +131,6 @@
       ctlL.addEventListener('xbuttonup', function (event) {
         txt.setAttribute("value","Left X-button up");
       });
-    </script>
+</script>
   </body>
 </html>
