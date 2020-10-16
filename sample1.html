@@ -35,11 +35,9 @@
       
       ctlL.addEventListener('thumbstickmoved',function(event){
         txt.setAttribute("value", "L Stick  x:"+event.detail.x.toFixed(2)+", y:"+event.detail.y.toFixed(2));
-        //txt.setAttribute("value",event.detail.x.toFixed(2));
       });
       ctlR.addEventListener('thumbstickmoved',function(event){
         txt.setAttribute("value", "R Stick  x:"+event.detail.x.toFixed(2)+", y:"+event.detail.y.toFixed(2));
-        //txt.setAttribute("value",event.detail.x.toFixed(2));
       });
       
       //Trigger Touch Started
